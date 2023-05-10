@@ -23,7 +23,7 @@ fi
 
 cd container
 git init
-git remote add origin https://github.com/DejavuMoe/self-hosted.git
+git remote add origin https://git.xvo.es/self-hosted.git
 git config --local core.sparsecheckout true
 echo "plausible" >> .git/info/sparse-checkout
 git pull --depth=1 origin master
