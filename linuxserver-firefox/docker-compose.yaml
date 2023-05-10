@@ -1,0 +1,17 @@
+version: "3.5"
+services:
+  firefox:
+    image: linuxserver/firefox:latest
+    container_name: firefox
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Seoul
+    volumes:
+      - ./config:/config
+    ports:
+      - "127.0.0.1:3001:3000"
+    shm_size: "2gb"
+    restart: unless-stopped
