@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  excalidraw:
+    image: dejavumoe/excalidraw:master
+    container_name: excalidraw
+    ports:
+      - "127.0.0.1:8808:80"
+    restart: always
+    stdin_open: true
+    healthcheck:
+      disable: true
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./data:/app/web
