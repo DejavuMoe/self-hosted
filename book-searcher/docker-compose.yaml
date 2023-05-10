@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  book-searcher:
+    image: dejavumoe/book-searcher
+    restart: always
+    ports:
+      - "127.0.0.1:7070:7070"
+    volumes:
+      - ./index:/index
