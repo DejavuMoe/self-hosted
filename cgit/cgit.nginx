@@ -28,6 +28,7 @@ server {
 
     root /var/www/cgit;
     try_files $uri @cgit;
+    client_max_body_size 10m;
 
     location @cgit {
         include          fastcgi_params;
