@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -eu
+
+# /usr/local/bin/git-bare
+
+# Check if the running user is root or sudo user
+if [ "$(id -u)" -ne 0 ]; then
+    if ! sudo -v &> /dev/null; then
+        echo "Please run the script as root or with sudo user"
+        exit 1
+    fi
+fi
+
+# Check if git is installed
+if ! command -v git &> /dev/null; then
+    echo "Git is not installed, please install Git first."
+    exit 1
+fi
+
+read -p "Please enter the repository name (without .git)." reponame
+
+if [ -d "/home/git/${reponame}.git" ]; then
+    echo "Repository ${reponame} already exists"
+    exit 1
+else
+    git init --bare "/home/git/${reponame}.git"
+    cd "/home/git/${reponame}.git"
+
+    read -p "Please enter the repository description:" description
+    echo "${description}." | sudo tee "description" > /dev/null
+
+    # Update the Git repository info
+    if ! git update-server-info &> /dev/null; then
+        echo "Failed to update Git repository information, exiting..."
+        exit 1
+    fi
+
+    chown -R git:www-data "/home/git/${reponame}.git"
+    chmod -R ug+rwx,o-rwx "/home/git/${reponame}.git"
+    echo "The repository was created successfully."
+fi
