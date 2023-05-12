@@ -4,17 +4,31 @@ set -eu
 
 # /usr/local/bin/git-bare
 
+echo "1.make sure you are running with root user or sudo privileged"
+echo "2.make sure you have installed cURL and Git"
+echo ""
+echo "Press Enter to continue..."
+read 
+
 # Check if the running user is root or sudo user
 if [ "$(id -u)" -ne 0 ]; then
     if ! sudo -v &> /dev/null; then
-        echo "Please run the script as root or with sudo user"
+        echo "Please run the script as root or with sudo privileged!"
         exit 1
     fi
 fi
 
-# Check if git is installed
+# Check if cURL is installed
+if ! command -v curl &> /dev/null; then
+    echo "cURL is not installed, please install curl first."
+    echo "sudo apt update && sudo apt install -y curl"
+    exit 1
+fi
+
+# Check if Git is installed
 if ! command -v git &> /dev/null; then
-    echo "Git is not installed, please install Git first."
+    echo "Git is not installed, please install git first."
+    echo "sudo apt update && sudo apt install -y git"
     exit 1
 fi
 
@@ -36,7 +50,12 @@ else
         exit 1
     fi
 
+    # Set up the new repository's post-receive
+    curl -s https://git.xvo.es/self-hosted/plain/cgit/post-receive.agefile -o hooks/post-receive
+    chmod +x hooks/post-receive
+    
+    # Set user groups and permissions for the repository
     chown -R git:www-data "/home/git/${reponame}.git"
     chmod -R ug+rwx,o-rwx "/home/git/${reponame}.git"
-    echo "The repository was created successfully."
+    echo "New bare repository ${reponame} initialized successfully."
 fi
