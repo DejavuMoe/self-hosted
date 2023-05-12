@@ -1,0 +1,146 @@
+##### cgit configuration file #####
+# https://git.zx2c4.com/cgit/tree/cgitrc.5.txt
+##### format: NAME=VALUE #####
+
+#### GLOBAL SETTINGS ####
+
+#### Web Configuration ####
+css=/cgit.css
+logo=/logo.svg
+# logo-link=
+favicon=/favicon.ico
+virtual-root=/
+
+# Prohibit search engine index
+robots=noindex, nofollow
+
+# Personalization
+root-title=Your Git Repository
+root-desc=my personal minimal and cute git server.
+head-include=/var/www/cgit/head-include.html
+footer=/var/www/cgit/footer.html
+root-readme=/var/www/cgit/about.html
+
+#### Cache Configuration ####
+cache-about-ttl=45
+cache-dynamic-ttl=3
+cache-repo-ttl=10
+cache-size=1000
+cache-root=/var/cache/cgit
+cache-root-ttl=3
+cache-scanrc-ttl=10
+cache-snapshot-ttl=30
+cache-static-ttl=15
+
+#### Filter API ####
+# owner-filter=
+# auth filter=
+source-filter=/usr/local/share/cgit/filters/syntax-highlighting.py
+commit-filter=/usr/local/share/cgit/filters/commit-links.sh
+email-filter=lua:/usr/local/share/cgit/filters/email-libravatar-korg.lua
+# email-filter=lua:/usr/local/share/cgit/filters/email-libravatar.lua
+# email-filter=lua:/usr/local/share/cgit/filters/email-gravatar.lua
+about-filter=/usr/local/share/cgit/filters/about-formatting.sh
+readme=:README.md
+readme=:readme.md
+readme=:README.txt
+readme=:readme.txt
+readme=:README
+readme=:readme
+
+#### CGIT Server Configuration ####
+
+# local-time=0
+# noplainemail=0
+# noheader=
+
+# With Smart HTTP Git Clone
+clone-url=https://git.xvo.es/$CGIT_REPO_URL
+
+# Disable dumb HTTP endpoint Git Clone
+enable-http-clone=0
+
+enable-index-owner=1
+enable-index-links=1
+enable-blame=1
+enable-log-filecount=1
+enable-log-linecount=1
+enable-commit-graph=1
+# enable-tree-linenumbers=1
+# enable-follow-links=0
+# enable-remote-branches=0
+# enable-git-config=0
+# enable-html-serving=0
+
+# Sort Configuration
+branch-sort=age
+case-sensitive-sort=1
+commit-sort=date
+
+# Summary Configuration
+summary-branches=5
+summary-log=15
+summary-tags=5
+snapshots=tar.gz zip
+max-atom-items=15
+max-blob-size=1024
+max-commit-count=50
+max-message-length=100
+max-repo-count=40
+max-repodesc-length=60
+max-stats=year
+
+# MIME Types
+mimetype.html=text/html
+mimetype.gif=image/gif
+mimetype.jpg=image/jpeg
+mimetype.jpeg=image/jpeg
+mimetype.png=image/png
+mimetype.webp=image/webp
+mimetype.pdf=application/pdf
+mimetype.svg=image/svg+xml
+
+# Remove the .git suffix
+remove-suffix=1
+scan-path=/home/git
+
+#### REPOSITORY SETTINGS ####
+
+# section-from-path=1
+# project-list=/path/to/projects.list
+# enable-filter-overrides=
+
+# For Each Single Repository
+# repo.name=
+# repo.defbranch=
+# repo.branch-sort=
+# repo.hide=
+# repo.homepage=
+# repo.ignore=
+# repo.desc=
+# repo.owner=
+# repo.path=
+# repo.url=
+# repo.clone-url=
+# repo.logo=
+# repo.logo-link=
+# repo.readme=
+# repo.section=
+# repo.snapshots=
+# repo.owner-filter=
+# repo.source-filter=
+# repo.about-filter=
+# repo.email-filter=
+# repo.commit-filter=
+# repo.commit-sort=
+# repo.enable-blame=
+# repo.enable-commit-graph=
+# repo.enable-html-serving=
+# repo.enable-log-filecount=
+# repo.enable-log-linecount=
+# repo.enable-remote-branches=
+# repo.enable-subject-links=
+# repo.extra-head-content=
+# repo.module-link=
+# repo.max-stats=
+# repo.snapshot-prefix=
