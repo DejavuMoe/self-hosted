@@ -2,23 +2,23 @@
 
 set -e
 
-echo -e "本脚本将帮助您使用 Docker Compose 快速部署 Plausible\nAuthor: Dejavu Moe\nPost:https://dejavu.moe/posts/plausible-selfhosted-with-docker-complete-guide/"
-read -p "请按 Enter 键继续..." enter
+echo -e "This script will help you quickly deploy Plausible using Docker Compose\nAuthor: Dejavu Moe\nPost:https://dejavu.moe/posts/plausible-selfhosted-with-docker-complete-guide/"
+read -p "Press Enter to continue..." enter
 
 if [[ "$(command -v docker)" == "" && "$(command -v docker compose)" == "" ]]; then
-  echo "您的机器上尚未安装最新版的 Docker 和 Docker Compose 插件，执行中止"
+  echo "Docker and the Docker Compose plugin are not installed on your machine, aborted!"
   exit 1
 else
-  echo "开始执行脚本"
+  echo "Start deployment process"
 fi
 
-echo "Plausible 相关的持久化数据将会被保存在 $(pwd)/container/plausible/"
+echo "Plausible The relevant persistent data will be stored in $(pwd)/container/plausible/"
 
 if [ -d container ]; then
-    echo "当前目录下已经存在 container 文件夹，跳过目录创建"
+    echo "The container folder already exists in the current directory, skip creating the folder"
 else
     mkdir container
-    echo "已创建 container 文件夹"
+    echo "The container folder has been created"
 fi
 
 cd container
@@ -28,8 +28,8 @@ git config --local core.sparsecheckout true
 echo "plausible" >> .git/info/sparse-checkout
 git pull --depth=1 origin master
 cd plausible
-echo "正在下载 geonames.csv.数据库..."
+echo "Downloading geonames.csv.database..."
 wget https://s3.eu-central-1.wasabisys.com/plausible-application/geonames.csv -P GeoIP/
-echo -e "Plausible 所需的环境已经初始化完成\n请完成环境变量的填写\n之后在当前目录使用下面命令完成部署\nsudo docker compose up -d\n按任意键退出..."
+echo -e "The environment required for Plausible has been initialized\nPlease complete the environment variables\nAfterwards, use the following command in the current directory to complete the deployment\nsudo docker compose up -d\nPress any key to exit..."
 read -n 1 -s -r -p ""
 exit 0
