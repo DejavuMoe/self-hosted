@@ -1,15 +1,35 @@
+:root {
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --body-bg: #faf6f2;
+  --hover-bg: #f4d2c1;
+  --table-lighter-bg: #eee;
+  --border-color: #8c7851;
+  --a-tag-color: #020826;
+  --a-hover-color: #020826;
+}
+body {
+  background: var(--body-bg);
+}
 div#cgit {
   padding: 0em;
   margin: 0em;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Helvetica, Arial,
+    'Noto Sans SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'PingFang SC',
+    'Source Han Sans SC', 'Hiragino Sans GB', 'Hiragino Sans', 'STHeitiSC-Light',
+    'SimSun', 'WenQuanYi Zen Hei', 'LiHei Pro Medium', 'STXihei',
+    'Noto Sans CJK SC', 'Meiryo UI', 'Malgun Gothic', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
+    'Android Emoji', 'EmojiSymbols', 'EmojiOne';
   font-size: 10pt;
-  color: #333;
-  background: white;
+  color: #171717;
+  background: var(--body-bg);
   padding: 4px;
 }
 
 div#cgit a {
-  color: blue;
+  color: var(--a-tag-color);
   text-decoration: none;
 }
 
@@ -49,20 +69,28 @@ div#cgit table#header td.form {
   white-space: nowrap;
 }
 
+/* All form elements styles */
+input,
+select,
+button {
+  background-color: var(--body-bg);
+  border: 1px solid var(--border-color);
+}
+
 div#cgit table#header td.form form,
 div#cgit table#header td.form input,
 div#cgit table#header td.form select {
-  font-size: 90%;
+  font-size: 100%;
 }
 
 div#cgit table#header td.sub {
   color: #777;
-  border-top: solid 1px #ccc;
+  border-top: solid 1px var(--border-color);
   padding-left: 10px;
 }
 
 div#cgit table.tabs {
-  border-bottom: solid 3px #ccc;
+  border-bottom: solid 3px var(--border-color);
   border-collapse: collapse;
   margin-top: 2em;
   margin-bottom: 0px;
@@ -81,8 +109,8 @@ div#cgit table.tabs td a {
 }
 
 div#cgit table.tabs td a.active {
-  color: #000;
-  background-color: #ccc;
+  color: #fffffe;
+  background-color: var(--border-color);
 }
 
 div#cgit table.tabs a[href^="http://"]:after, div#cgit table.tabs a[href^="https://"]:after
@@ -98,26 +126,26 @@ div#cgit table.tabs td.form {
 
 div#cgit table.tabs td.form form {
   padding-bottom: 2px;
-  font-size: 90%;
+  font-size: 100%;
   white-space: nowrap;
 }
 
 div#cgit table.tabs td.form input,
 div#cgit table.tabs td.form select {
-  font-size: 90%;
+  font-size: 100%;
 }
 
 div#cgit div.path {
   margin: 0px;
   padding: 5px 2em 2px 2em;
   color: #000;
-  background-color: #eee;
+  background-color: var(--hover-bg);
 }
 
 div#cgit div.content {
   margin: 0px;
   padding: 2em;
-  border-bottom: solid 3px #ccc;
+  border-bottom: solid 3px var(--border-color);
 }
 
 div#cgit table.list {
@@ -127,39 +155,39 @@ div#cgit table.list {
 }
 
 div#cgit table.list tr {
-  background: white;
+  background: var(--body-bg);
 }
 
 div#cgit table.list tr.logheader {
-  background: #eee;
+  background: var(--hover-bg);
 }
 
 div#cgit table.list tr:nth-child(even) {
-  background: #f7f7f7;
+  background: var(--table-lighter-bg);
 }
 
 div#cgit table.list tr:nth-child(odd) {
-  background: white;
+  background: var(--body-bg);
 }
 
 div#cgit table.list tr:hover {
-  background: #eee;
+  background: var(--hover-bg);
 }
 
 div#cgit table.list tr.nohover {
-  background: white;
+  background: var(--body-bg);
 }
 
 div#cgit table.list tr.nohover:hover {
-  background: white;
+  background: var(--body-bg);
 }
 
 div#cgit table.list tr.nohover-highlight:hover:nth-child(even) {
-  background: #f7f7f7;
+  background: var(--table-lighter-bg);
 }
 
 div#cgit table.list tr.nohover-highlight:hover:nth-child(odd) {
-  background: white;
+  background: var(--body-bg);
 }
 
 div#cgit table.list th {
@@ -178,7 +206,7 @@ div#cgit table.list td {
 }
 
 div#cgit table.list td.commitgraph {
-  font-family: monospace;
+  font-family: var(--font-mono);
   white-space: pre;
 }
 
@@ -207,12 +235,12 @@ div#cgit table.list td.commitgraph .column6 {
 }
 
 div#cgit table.list td.logsubject {
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-weight: bold;
 }
 
 div#cgit table.list td.logmsg {
-  font-family: monospace;
+  font-family: var(--font-mono);
   white-space: pre;
   padding: 0 0.5em;
 }
@@ -223,11 +251,11 @@ div#cgit table.list td a {
 
 div#cgit table.list td a.ls-dir {
   font-weight: bold;
-  color: #00f;
+  color: var(--a-hover-color);
 }
 
 div#cgit table.list td a:hover {
-  color: #00f;
+  color: var(--a-hover-color);
 }
 
 div#cgit img {
@@ -267,7 +295,7 @@ div#cgit table#downloads {
 }
 
 div#cgit table#downloads th {
-  background-color: #ccc;
+  background-color: var(--border-color);
 }
 
 div#cgit div#blob {
@@ -283,17 +311,17 @@ div#cgit div.error {
 div#cgit a.ls-blob,
 div#cgit a.ls-dir,
 div#cgit .ls-mod {
-  font-family: monospace;
+  font-family: var(--font-mono);
 }
 
 div#cgit td.ls-size {
   text-align: right;
-  font-family: monospace;
+  font-family: var(--font-mono);
   width: 10em;
 }
 
 div#cgit td.ls-mode {
-  font-family: monospace;
+  font-family: var(--font-mono);
   width: 10em;
 }
 
@@ -351,11 +379,11 @@ div#cgit table.blame td.linenumbers div.alt {
 }
 
 div#cgit table.blame div.alt:nth-child(even) {
-  background: #eee;
+  background: var(--hover-bg);
 }
 
 div#cgit table.blame div.alt:nth-child(odd) {
-  background: white;
+  background: var(--body-bg);
 }
 
 div#cgit table.blame td.lines > div {
@@ -378,14 +406,14 @@ div#cgit table.bin-blob {
 }
 
 div#cgit table.bin-blob th {
-  font-family: monospace;
+  font-family: var(--font-mono);
   white-space: pre;
   border: solid 1px #777;
   padding: 0.5em 1em;
 }
 
 div#cgit table.bin-blob td {
-  font-family: monospace;
+  font-family: var(--font-mono);
   white-space: pre;
   border-left: solid 1px #777;
   padding: 0em 1em;
@@ -408,7 +436,7 @@ div#cgit div.cgit-panel {
 div#cgit div.cgit-panel table {
   border-collapse: collapse;
   border: solid 1px #aaa;
-  background-color: #eee;
+  background-color: var(--hover-bg);
 }
 
 div#cgit div.cgit-panel th {
@@ -448,7 +476,7 @@ div#cgit div.commit-subject {
 
 div#cgit div.commit-msg {
   white-space: pre;
-  font-family: monospace;
+  font-family: var(--font-mono);
 }
 
 div#cgit div.notes-header {
@@ -458,7 +486,7 @@ div#cgit div.notes-header {
 
 div#cgit div.notes {
   white-space: pre;
-  font-family: monospace;
+  font-family: var(--font-mono);
   border: solid 1px #ee9;
   background-color: #ffd;
   padding: 0.3em 2em 0.3em 1em;
@@ -477,7 +505,7 @@ div#cgit div.diffstat-header {
 div#cgit table.diffstat {
   border-collapse: collapse;
   border: solid 1px #aaa;
-  background-color: #eee;
+  background-color: var(--hover-bg);
 }
 
 div#cgit table.diffstat th {
@@ -512,7 +540,7 @@ div#cgit table.diffstat td.del a {
 }
 
 div#cgit table.diffstat td.upd a {
-  color: blue;
+  color: var(--a-tag-color);
 }
 
 div#cgit table.diffstat td.graph {
@@ -548,7 +576,7 @@ div#cgit table.diff {
 }
 
 div#cgit table.diff td {
-  font-family: monospace;
+  font-family: var(--font-mono);
   white-space: pre;
 }
 
@@ -571,7 +599,7 @@ div#cgit table.diff td div.del {
 }
 
 div#cgit .oid {
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 90%;
 }
 
@@ -665,23 +693,23 @@ div#cgit div.footer {
   margin-top: 0.5em;
   text-align: center;
   font-size: 80%;
-  color: #ccc;
+  color: var(--border-color);
 }
 
 div#cgit div.footer a {
-  color: #ccc;
+  color: var(--border-color);
   text-decoration: none;
 }
 
 div#cgit div.footer a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 div#cgit a.branch-deco {
   color: #000;
   margin: 0px 0.5em;
   padding: 0px 0.25em;
-  background-color: #88ff88;
+  background-color: #6ddc6d;
   border: solid 1px #007700;
 }
 
@@ -705,7 +733,7 @@ div#cgit a.remote-deco {
   color: #000;
   margin: 0px 0.5em;
   padding: 0px 0.25em;
-  background-color: #ccccff;
+  background-color: var(--border-color) cff;
   border: solid 1px #000077;
 }
 
@@ -713,7 +741,7 @@ div#cgit a.deco {
   color: #000;
   margin: 0px 0.5em;
   padding: 0px 0.25em;
-  background-color: #ff8888;
+  background-color: #ff6e6c;
   border: solid 1px #770000;
 }
 
@@ -734,7 +762,7 @@ div#cgit table.stats {
 div#cgit table.stats th {
   text-align: left;
   padding: 1px 0.5em;
-  background-color: #eee;
+  background-color: var(--hover-bg);
   border: solid 1px black;
 }
 
@@ -752,7 +780,7 @@ div#cgit table.stats td.total {
 div#cgit table.stats td.sum {
   color: #c00;
   font-weight: bold;
-  /*      background-color: #eee; */
+  /*      background-color: var(--hover-bg); */
 }
 
 div#cgit table.stats td.left {
@@ -766,7 +794,7 @@ div#cgit table.vgraph {
 }
 
 div#cgit table.vgraph th {
-  background-color: #eee;
+  background-color: var(--hover-bg);
   font-weight: bold;
   border: solid 1px white;
   padding: 1px 0.5em;
@@ -778,7 +806,7 @@ div#cgit table.vgraph td {
 }
 
 div#cgit table.vgraph div.bar {
-  background-color: #eee;
+  background-color: var(--hover-bg);
 }
 
 div#cgit table.hgraph {
@@ -787,7 +815,7 @@ div#cgit table.hgraph {
 }
 
 div#cgit table.hgraph th {
-  background-color: #eee;
+  background-color: var(--hover-bg);
   font-weight: bold;
   border: solid 1px black;
   padding: 1px 0.5em;
@@ -799,7 +827,7 @@ div#cgit table.hgraph td {
 }
 
 div#cgit table.hgraph div.bar {
-  background-color: #eee;
+  background-color: var(--hover-bg);
   height: 1em;
 }
 
@@ -809,7 +837,7 @@ div#cgit table.ssdiff {
 
 div#cgit table.ssdiff td {
   font-size: 75%;
-  font-family: monospace;
+  font-family: var(--font-mono);
   white-space: pre;
   padding: 1px 4px 1px 4px;
   border-left: solid 1px #aaa;
@@ -864,7 +892,7 @@ div#cgit table.ssdiff td.changed_dark {
 
 div#cgit table.ssdiff td.lineno {
   color: black;
-  background: #eee;
+  background: var(--hover-bg);
   text-align: right;
   width: 3em;
   min-width: 3em;
@@ -928,6 +956,6 @@ div#cgit span.libravatar:hover > img.onhover {
   display: block;
   position: absolute;
   margin-left: 1.5em;
-  background-color: #eeeeee;
+  background-color: var(--hover-bg) eee;
   box-shadow: 5px 5px 3px #bbb;
 }
