@@ -61,7 +61,7 @@ clone-url=https://git.xvo.es/$CGIT_REPO_URL
 enable-http-clone=0
 
 enable-index-owner=1
-enable-index-links=1
+enable-index-links=0
 enable-blame=1
 enable-log-filecount=1
 enable-log-linecount=1
