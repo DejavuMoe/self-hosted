@@ -69,18 +69,10 @@ div#cgit table#header td.form {
   white-space: nowrap;
 }
 
-/* All form elements styles */
-input,
-select,
-button {
-  background-color: var(--body-bg);
-  border: 1px solid var(--border-color);
-}
-
 div#cgit table#header td.form form,
 div#cgit table#header td.form input,
 div#cgit table#header td.form select {
-  font-size: 100%;
+  font-size: 90%;
 }
 
 div#cgit table#header td.sub {
@@ -126,13 +118,13 @@ div#cgit table.tabs td.form {
 
 div#cgit table.tabs td.form form {
   padding-bottom: 2px;
-  font-size: 100%;
+  font-size: 90%;
   white-space: nowrap;
 }
 
 div#cgit table.tabs td.form input,
 div#cgit table.tabs td.form select {
-  font-size: 100%;
+  font-size: 90%;
 }
 
 div#cgit div.path {
@@ -456,15 +448,17 @@ div#cgit div.cgit-panel td.ctrl {
 }
 
 div#cgit table.commit-info th {
-  text-align: left;
-  font-weight: normal;
-  padding: 0.1em 1em 0.1em 0.1em;
-  vertical-align: top;
+  vertical-align: center;
+  text-align: center;
+  font-weight: 600;
+  padding: 0.2em 1em 0.2em 1em;
+  border: 1px solid var(--border-color);
 }
 
 div#cgit table.commit-info td {
   font-weight: normal;
-  padding: 0.1em 1em 0.1em 0.1em;
+  border: 1px solid var(--border-color);
+  padding: 0.2em 1em 0.2em 1em;
 }
 
 div#cgit div.commit-subject {
